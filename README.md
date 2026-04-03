@@ -27,9 +27,32 @@ L’obiettivo principale è stato comprendere la gestione della memoria, la stru
 - **Librerie:** libpq (PostgreSQL client)  
 - **Strumenti:** GCC / Clang, VS Code  
 
-## 📸 Screenshots
+## ▶️ Come avviare il progetto
 
-*(Aggiungi output da terminale o eventuali interfacce)*
+Per eseguire questo progetto in locale, seguire i seguenti passaggi.
+È necessario avere PostgreSQL e le librerie client (`libpq`) installate sul sistema.
+
+####  🍎 macOS
+> _bash_
+> _brew install postgresql_
+
+####  🐧 Linux
+> _sudo apt install libpq-dev_
+
+- Crea il database
+> _createdb spedizioniere_db_
+
+- Importa lo script SQL
+> _psql -U postgres -d spedizioniere_db -f database/Spedizioniere.sql_
+
+- Compila il programma
+> _gcc src/Spedizioniere.c -o spedizioniere -lpq_
+
+- Esegui il programma
+> _./spedizioniere_
+
+### 🔧 Configurazione della connessione con il database
+> _PQconnectdb("user=YOUR_USER password=YOUR_PASSWORD dbname=spedizioniere_db");_
 
 ## 📌 Note
 
